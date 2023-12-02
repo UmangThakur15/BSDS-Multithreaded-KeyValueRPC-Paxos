@@ -4,27 +4,26 @@ Late Days Remaining: 5
 
 # Assignment Overview:
 
-The project's main objective is to use the Paxos consensus algorithm to ensure that a group of computers can agree on decisions,
-even when some computers face issues. This involves creating roles like "Proposers," "Acceptors," and "Learners" to collaborate and
-agree on values, addressing the limitations of previous methods like the Two-Phase Commit protocol. Understanding Paxos phases—prepare,
-accept, learn—handling failures, and simulating components such as clients and data stores are crucial. By achieving reliable agreement
-on values and managing event sequencing, the project demonstrates Paxos's ability to achieve consensus in a distributed system despite
-potential disruptions.
+In this project, the objective was to enhance the fault tolerance of a Key-Value Store Server, previously implemented in Project #3,
+by integrating the Paxos consensus algorithm. The Paxos algorithm, as described in Lamport papers, is implemented for the roles
+of Proposers, Acceptors, and Learners across five distinct servers. The focus was on realizing fault-tolerant consensus for KV-store
+operations, particularly PUT and DELETE, to ensure continual operation despite replica failures. Acceptors, at a minimum, are configured
+to "fail" periodically, simulating random failures in the system. The project aims to showcase how Paxos effectively manages replicated
+server failures and achieves consensus in event ordering.
 
 # Technical Impressions:
 
-Throughout the assignment, I explored the complex world of distributed systems and focused on making the Paxos consensus algorithm work.
-The project was both exciting and challenging as it took me through the concepts of fault tolerance and agreement. I played different roles
-like Proposers, Acceptors, and Learners. At first, it seemed difficult to put all these roles together, but as I gradually understood how
-they worked, I saw how agreement can be achieved in a system where things are spread out.
+In Project #4, I delved into the world of distributed systems, focusing on making the Paxos consensus algorithm work. It was a mix of
+excitement and challenge as I played different roles like Proposers, Acceptors, and Learners. Although it initially seemed tough to put
+these roles together, I gradually understood how they functioned and realized how we can make things agree in a system spread out over
+multiple parts.
 
-Implementing the Paxos algorithm taught me how important it is to order events carefully and handle failures. The tricky part was creating
-scenarios that could actually happen while still keeping the main Paxos rules intact. Making different roles work together, creating
-failures in the system, and then getting everything back on track showed me how hard it is to balance safety and availability.
+Implementing Paxos taught me the importance of carefully ordering events and dealing with failures. Creating situations that could actually
+happen while sticking to Paxos rules was tricky. Making different roles collaborate, causing failures, and then fixing everything taught me
+how hard it is to balance safety and availability.
 
-While working on this project, I gained a greater understanding of how complex real-world distributed systems can be. It's important
-to think about what might go wrong, make sure things keep working, and make sure everyone agrees on things. This assignment also showed
-me that different ways of reaching agreement have their own trade-offs. Paxos, for instance, focuses a lot on being consistent and reliable,
-which makes sense given how challenging it can be to make distributed systems work together. In the end, this project was like a
-fascinating journey into the world of handling faults and making everyone agree, and it gave me a chance to really dig deep into
-distributed systems.
+Throughout this project, I gained a deeper understanding of the complexities of real-world distributed systems. It's crucial to think about
+what might go wrong, ensure things keep running, and make sure everyone in the system agrees. This assignment also showed me that different
+ways of making agreements have their own pros and cons. Paxos, for example, focuses a lot on being consistent and reliable, which makes
+sense given how challenging it is to make distributed systems work together. Overall, this project was like a fascinating journey into
+handling problems and getting everyone to agree, allowing me to dive deep into the world of distributed systems.

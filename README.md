@@ -1,12 +1,12 @@
 # Implementation of Paxos
 
-This project extends the groundwork laid in Project #3 by introducing fault tolerance and consensus mechanisms to a replicated Key-Value
-Store Server setup. The primary goal is to enhance system resilience against replica failures and achieve synchronized updates using the 
-Paxos algorithm, as elucidated in Lamport's "Paxos made simple" paper. By integrating Paxos roles, including Proposers, Acceptors, and 
-Learners, the project delves into the intricacies of implementing the algorithm, understanding the steps required for consensus, and 
-addressing nuances related to event ordering. Notably, the architecture accommodates dynamic client requests to replicas while providing 
-the option to implement leader election for proposers. Furthermore, a key requirement involves the periodic failure of acceptor threads, 
-showcasing Paxos' adeptness at handling replicated server failures.
+In Project #4, I expanded Project #3 by introducing fault tolerance and consensus mechanisms to a replicated Key-Value Store Server. 
+The primary objective was to fortify the system against replica failures and achieve synchronized updates through the implementation 
+of the Paxos algorithm, as outlined in Lamport's "Paxos made simple" paper. The project involved integrating Paxos roles such as Proposers,
+Acceptors, and Learners, delving into the intricacies of implementing the algorithm and understanding the crucial steps for consensus and 
+event ordering. Notably, the system was designed to accommodate dynamic client requests to replicas, with the option to implement leader 
+election for proposers. A significant aspect of the project was the periodic failure of acceptor threads, serving as a demonstration of 
+Paxos' efficacy in managing replicated server failures and reinforcing the system's resilience.
 
 
 ## Steps to Execute
