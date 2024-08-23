@@ -1,44 +1,45 @@
-# Implementation of Paxos
+# Multithreaded Key-Value Store with RPC and Paxos
 
-In Project #4, I expanded Project #3 by introducing fault tolerance and consensus mechanisms to a replicated Key-Value Store Server. 
-The primary objective was to fortify the system against replica failures and achieve synchronized updates through the implementation 
-of the Paxos algorithm, as outlined in Lamport's "Paxos made simple" paper. The project involved integrating Paxos roles such as Proposers,
-Acceptors, and Learners, delving into the intricacies of implementing the algorithm and understanding the crucial steps for consensus and 
-event ordering. Notably, the system was designed to accommodate dynamic client requests to replicas, with the option to implement leader 
-election for proposers. A significant aspect of the project was the periodic failure of acceptor threads, serving as a demonstration of 
-Paxos' efficacy in managing replicated server failures and reinforcing the system's resilience.
+## Overview
 
+The Multithreaded Key-Value Store is a Java-based distributed application designed to provide a reliable and fault-tolerant solution for managing key-value data across multiple nodes. The system uses Remote Procedure Calls (RPC) for communication between clients and servers and employs the Paxos consensus algorithm to ensure consistency in a distributed environment. This project demonstrates the principles of distributed computing, focusing on achieving consistency, fault tolerance, and efficient handling of concurrent requests.
+
+## Technologies Used
+
+- **Java**: The primary programming language used for implementing the application, chosen for its robustness, object-oriented capabilities, and extensive libraries for networking and multithreading.
+- **Remote Procedure Call (RPC)**: Enables remote communication between the client and server components, simulating real-world distributed systems.
+- **Paxos Consensus Algorithm**: A distributed consensus protocol that ensures agreement on a single value among a group of nodes, providing consistency even in the presence of network failures.
+- **Multithreading**: Allows concurrent processing of multiple client requests, enhancing the performance and responsiveness of the server.
+- **Java Archive (JAR) Files**: Used for packaging compiled Java classes and associated metadata into a single file, simplifying deployment and execution.
+
+## Features
+
+- **Distributed Key-Value Storage**: Provides a scalable and reliable key-value store that can manage data across multiple distributed nodes.
+- **Paxos-Based Consensus**: Ensures that all nodes in the system agree on the order of operations, maintaining consistency even in a distributed environment.
+- **Multithreaded Server Operations**: Supports concurrent client connections and operations, improving system throughput and responsiveness.
+- **RPC Communication**: Facilitates seamless communication between clients and servers, allowing for dynamic and flexible interactions in a distributed setup.
+- **Fault Tolerance and High Availability**: Designed to handle server failures gracefully, ensuring continuous operation and data integrity through the Paxos protocol.
+- **Modular and Extensible Design**: The codebase is structured to allow easy extension and modification, supporting future enhancements and scalability.
+
+## Project Structure
+
+The project is organized into several key directories, each containing specific components of the application:
+
+- **Client**: Contains the client-side code responsible for interacting with the server.
+- **ProcessRequest**: Manages the processing of client requests on the server side.
+- **Server**: Contains the server-side implementation, including classes related to the Paxos protocol and key-value store management.
+- **jar**: Contains compiled JAR files for easy execution.
+- **out**: Holds compiled classes or outputs generated during the build process.
+- **META-INF**: Stores metadata related to the Java archive files (JAR).
+- **Documentation and Diagrams**: Provides visual representations and summaries to aid understanding of the system's architecture and operations.
 
 ## Steps to Execute
 
-1. Go to the `/jar` folder and open a Command Line Terminal for both client and server.
+1. **Navigate to the JAR Directory**:
+   Go to the `/jar` folder in your terminal. This folder contains the compiled JAR files for both the client and server.
 
-2. To start the server, execute the following command in CLI:
-   `java -jar Server.jar <port> <remoteObject>`
-   Replace `<port>` with the desired port number on which the server will provide remote methods for the client.
-   Also, replace `<remoteObject>` with the chosen remote object registry name, through which the client can access the server's methods.
-   For example: `java -jar Server.jar 7001 KSS`
+2. **Start the Server**:
+   Open a terminal and execute the following command to start the server:
 
-3. To initiate the client, execute the following command in CLI:
-   `java -jar Client.jar <hostname> <port> <remoteObject>` 
-    Replace `<serverAddress>` with the server's IP address or hostname, and `<serverPort>` with the port number on which the server
-    exposes remote objects. In this project, the serverPort can be set as `localhost`. 
-    For example: `java -jar Client.jar localhost 7001 KSS`
-
-4. The initial step involves pre-populating the key store with values. After executing Client side command, the system will perform 5
-   operations including GET, DELETE, and PUT.
-
-5. The client will prompt to input the desired operation along with the Key and Value, as per the chosen operation. If the input is
-   incorrect, it will ask to re-enter the data. The server processes the operation and returns a response to the client indicating the
-   success of the operation. If "EXIT" is entered as the operation, the client will exit the system.
-
-6. Basic examples for the input:
-
-   `PUT key0 umang` 
-   `GET key0` 
-   `DELETE key0`
-
-7. Available Client Operation inputs: GET <KEY>, PUT <KEY> <VALUE>, DELETE <KEY>. These inputs are case-sensitive.
-   **Output**: The returned value for the given Key is: <VALUE>, Key: <KEY> has been added with Value: <VALUE>, Value for Key: <KEY> has
-   been deleted.
-
+   ```bash
+   java -jar Server.jar <port> <remoteObject>
